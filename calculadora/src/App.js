@@ -11,7 +11,24 @@ function App() {
   const [input, setInput] = useState('');
 
   const agregarInput = valor => {
-    setInput(input + valor);
+    if(esOperador(valor)){
+      if(validarInput()){
+        setInput(input + valor);
+      }
+    } else {
+      setInput(input + valor);
+    }
+  };
+
+  const esOperador = valor => {
+    return isNaN(valor) || (valor === '.') || (valor === '=');
+  };
+
+  const validarInput = () => {
+    if(input.includes('.') || isNaN(input)){
+      return false;
+    }
+    return true;
   };
 
   const calcularResultado = () => {
