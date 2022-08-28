@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Contact } from '../../models/Contact.class';
 import ContactComponent from '../pure/ContactComponent'
+import ContactForm from '../pure/ContactComponent'
+import ContactFormFormik from '../pure/ContactFormFormik'
 
 const ContactContainer = () => {
 
@@ -15,14 +17,29 @@ const ContactContainer = () => {
     }
   }
 
+  const removeContact = () => {
+
+  }
+
+  const addContact = () => {
+
+  }
+
   return (
     <div>
-      <div>
-        <ContactComponent contact={contacto}></ContactComponent>
-      </div>
-      <div>
-        <button onClick={handleClick}>Cambiar estado</button>
-      </div>
+      <table>
+        <tbody>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Estado</th>
+            <th></th>
+          </tr>
+        </tbody>
+        <ContactComponent contact={contacto} handleClick={handleClick} removeContact={removeContact}></ContactComponent>
+      </table>
+      <ContactFormFormik></ContactFormFormik>
     </div>
   )
 }
